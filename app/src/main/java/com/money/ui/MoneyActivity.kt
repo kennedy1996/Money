@@ -74,20 +74,20 @@ class MoneyActivity : AppCompatActivity() {
         typeMoney: TextView,
         progressBar: ProgressBar,
         valueField: EditText,
-        contry_to: String,
-        countr_from: String,
+        country_to: String,
+        country_from: String,
         newValue: TextView
     ) {
         var typeMoneyValue = "to EURO"
-        if (contry_to == "EUR") typeMoneyValue = "to DOLAR"
+        if (country_from == "EUR") typeMoneyValue = "to DOLAR"
         typeMoney.text = typeMoneyValue
         progressBar.visibility = View.VISIBLE
-        viewModel.convertMoney(contry_to, countr_from, valueField.text.toString().toDouble())
+        viewModel.convertMoney(country_to, country_from, valueField.text.toString().toDouble())
         afterTimeCheckConverter(
             progressBar,
             newValue,
-            contry_to,
-            countr_from,
+            country_to,
+            country_from,
             valueField.text.toString().toDouble()
         )
     }
@@ -106,7 +106,7 @@ class MoneyActivity : AppCompatActivity() {
             if (getMoney != null) {
                 if (getMoney.result.isNotEmpty()) {
 
-                    val text = "$country_to $toDouble\n=\n$country_from ${getMoney.result}"
+                    val text = "$country_from $toDouble\n=\n$country_to ${getMoney.result}"
 
                     newValue.text = text
 
